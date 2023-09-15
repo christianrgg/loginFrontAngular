@@ -5,8 +5,9 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { LoginPagesComponent } from './pages/login-pages/login-pages.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
-// 1. Se creo el modulo (1)auth y (2)dashboard con rounting con angular cli ng m auth --routing
+// 2. Importar el reactiveformsmodule
 @NgModule({
   declarations: [
     LoginPagesComponent,
@@ -16,7 +17,8 @@ import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component
   ],
   imports: [
     CommonModule,
-    AuthRoutingModule
+    AuthRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class AuthModule { }
