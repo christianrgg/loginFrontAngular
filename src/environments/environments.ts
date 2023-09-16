@@ -3,5 +3,5 @@
 
 export const environment = {
   // 5. Crear el url constantes con urls base
-  baseUrl: 'http:/localhost:3000'
+  baseUrl: 'http://localhost:3000'
 }
