@@ -2,6 +2,8 @@ import {inject, Injectable, signal} from '@angular/core';
 import {environment} from "../../../environments/environments";
 import {HttpClient} from "@angular/common/http";
 import {Observable, of} from "rxjs";
+import {AuthStatus, User} from "../interfaces";
+
 
 @Injectable({
   providedIn: 'root'
@@ -9,19 +11,18 @@ import {Observable, of} from "rxjs";
 export class AuthService {
   // 6. Declarar variable de solo lectura que almacene la URL y no se pueda modificar
   private readonly baseUrl: string = environment.baseUrl;
-  //8. Inyectar el modlo http
+
   private http = inject(HttpClient);
 
-  // 9. señal para notificar a los componentes de la aplicación cuando el usuario se logea
+  // 16. Hacer la importación para user y para status. En estatus agregar que el valor inicial sea checking
   private _currentUser = signal<User|null>(null);
-  // 10 verificar el estado de autenticación
-  private _authStatus = signal<AuthStatus>()
+
+  private _authStatus = signal<AuthStatus>(AuthStatus.checking)
 
 
 
   constructor() { }
 
-  // 11. Metodo login
   login(email:string, password:string):Observable<boolean>{
     return of (true);
   }
