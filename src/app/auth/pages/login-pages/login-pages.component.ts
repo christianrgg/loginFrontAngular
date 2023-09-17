@@ -1,6 +1,8 @@
 import {Component, inject} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../services/auth.service";
+import Swal from 'sweetalert2'
+
 
 @Component({
   templateUrl: './login-pages.component.html',
@@ -18,11 +20,13 @@ export class LoginPagesComponent {
   })
 
   login(){
-    // 17. Crear constante donde del formulario se extraigan el email y pasword
     const {email, password} = this.myForm.value;
-    // 18. Llamar al servicio login, y pasar los datos del paso anterior
-    this.authService.login(email, password).subscribe(success =>{
-      console.log({success})
+    // 20. Hacer la instalación de https://sweetalert2.github.io/ para la alerta
+    this.authService.login(email, password).subscribe({
+      next: () => console.log('Todo bien'),
+      error: (message) => {
+        Swal.fire('Error', message, 'error')
+      }
     })
   }
 }
