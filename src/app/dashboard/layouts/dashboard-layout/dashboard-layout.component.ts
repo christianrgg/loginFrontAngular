@@ -8,7 +8,10 @@ import {AuthService} from "../../../auth/services/auth.service";
 })
 export class DashboardLayoutComponent {
   //23 acceder a la información del usuario
-  private authService = inject(AuthService);
-  public user = computed(() => this.authService.currentUser());
+  private _authService = inject(AuthService);
+  public user = computed(() => this._authService.currentUser());
+  //get user(){
+  //  return this._authService.currentUser();
+  //}
 }
 
