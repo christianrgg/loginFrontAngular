@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {isAuthenticatedGuard} from "./auth/guards/is-authenticated.guard";
 import {isNotAuthenticatedGuard} from "./auth/guards/is-not-authenticated.guard";
-// 40.
+
 const routes: Routes = [
   {
     path: 'auth',
