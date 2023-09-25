@@ -21,7 +21,6 @@ export class AuthService {
   public authStatus = computed(()=> this._authStatus())
 
   constructor() {
-    // 36. Llamar en el constructor
     this.checkAuthStatus().subscribe();
   }
 

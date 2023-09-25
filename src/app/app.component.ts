@@ -9,10 +9,8 @@ import {Router} from "@angular/router";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  // 33. Inyectar el servicio
   private authService = inject(AuthService);
   private router = inject(Router)
-  // Señal para detectar estado de autenticación
   public finishedAuthCheck = computed<boolean>(()=>{
     if(this.authService.authStatus() === AuthStatus.checking){
       return false;
@@ -20,9 +18,7 @@ export class AppComponent {
     return true;
   });
 
-  // 35. Disparar efecto
   public authStatusChangedEffect= effect(()=>{
-    // 38.
     switch (this.authService.authStatus()){
       case AuthStatus.checking:
         return;
