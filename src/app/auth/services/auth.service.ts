@@ -20,8 +20,11 @@ export class AuthService {
   public currentUser = computed(()=> this._currentUser())
   public authStatus = computed(()=> this._authStatus())
 
-  constructor() { }
-  // 32. Crear la funcion de optimización
+  constructor() {
+    // 36. Llamar en el constructor
+    this.checkAuthStatus().subscribe();
+  }
+
   private setAuthentication(user:User, token: string):boolean{
     this._currentUser.set(user);
     this._authStatus.set(AuthStatus.authenticated);
